@@ -14,7 +14,7 @@ export default function courseReducer(state = initialState.courses, action) {
 
         case types.UPDATE_COURSE_SUCCESS: {
 
-            const index = state.findIndex(course => course.id = action.course.id);
+            const index = state.findIndex(course => course.id === action.course.id);
 
             return [
                 ...state.slice(0, index),

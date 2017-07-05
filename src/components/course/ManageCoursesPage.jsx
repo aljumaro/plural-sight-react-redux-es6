@@ -20,7 +20,7 @@ class ManageCoursesPage extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.course.id != nextProps.course.id) {
+        if (this.props.course.id !== nextProps.course.id) {
             this.setState({course: Object.assign({}, nextProps.course)});
         }
     }
@@ -36,8 +36,10 @@ class ManageCoursesPage extends React.Component {
 
     saveCourse(event) {
         event.preventDefault();
-        this.props.actions.saveCourse(this.state.course);
-        this.props.history.push('/courses');
+        this.props.actions.saveCourse(this.state.course).then(() => {
+            this.props.history.push('/courses');
+        });
+
     }
 
     render() {
